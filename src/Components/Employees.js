@@ -1,18 +1,17 @@
 import React from 'react'
-import UserServices from '../services/UserService';
 import { useState,useEffect } from 'react';
 import { Link ,useParams,useNavigate} from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
 function Employees() {
   const [users,setUsers]=useState([])
-    const [id,setID]=useState([])
-    const [name,setName]=useState([])
-    const [photo,setPhoto]=useState([])
-    const [email,setEmail]=useState([])
-    const [address,setAddress]=useState([])
-    const [branchName,setbranchName]=useState([])
-    const [bankName,setbankName]=useState([])
+    // const [id,setID]=useState([])
+    // const [name,setName]=useState([])
+    // const [photo,setPhoto]=useState([])
+    // const [email,setEmail]=useState([])
+    // const [address,setAddress]=useState([])
+    // const [branchName,setbranchName]=useState([])
+    // const [bankName,setbankName]=useState([])
 
     useEffect(() => {
 
