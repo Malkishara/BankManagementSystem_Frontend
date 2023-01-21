@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import { useHistory,Link} from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
+import '../Styles/Login.css';
+
 
 function Login() {
   
@@ -18,17 +20,19 @@ const history=useHistory();
   const login=() => {
     
     
-    //console.log(email);
-    //console.log(password);
+    console.log(email);
+    console.log(password);
     fetch("http://localhost:3000/login").then(response => response.json())
   .then(data =>{
     console.log(data);
     
    var navi; 
     for(var i=0;i<data.length;i++){
+      console.log(data[i].emp_email);
+      console.log(email);
       if(data[i].emp_email==email && data[i].emp_password==password){
         console.log("True");
-        history.push("/employee");
+         history.push("/employee");
         navi=true;
       }
       
@@ -46,18 +50,25 @@ const history=useHistory();
 
 
   return (
-    <div>
-      <h3>Login Page</h3>
+    <div className='login'>
+      <div className='bank'>
+      <p>Bank Management System</p>
+    </div>
+      <div className='title'>
+     <p>Login Page</p>
+      </div>
+     
       
+      <div >
 
-      <Card style={{ width: '18rem' }}>
-    <Form>
+      <Card style={{ width: '25rem' ,height:'18rem'}} className='card'>
+
+      <Card.Body>
+    <Form >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
+        
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -70,13 +81,15 @@ const history=useHistory();
         Login
       </Button>
       
-      <Button variant="danger" type="reset" >
+      <Button variant="danger" type="reset" style={{ marginLeft: '2rem' }}>
         Reset
       </Button>
       
       
     </Form>
+    </Card.Body>
     </Card>
+    </div>
     </div>
   )
 }

@@ -2,16 +2,13 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import { Link ,useParams,useNavigate} from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import Card from 'react-bootstrap/Card';
+import '../Styles/Employee.css'
+
 
 function Employees() {
   const [users,setUsers]=useState([])
-    // const [id,setID]=useState([])
-    // const [name,setName]=useState([])
-    // const [photo,setPhoto]=useState([])
-    // const [email,setEmail]=useState([])
-    // const [address,setAddress]=useState([])
-    // const [branchName,setbranchName]=useState([])
-    // const [bankName,setbankName]=useState([])
+    
 
     useEffect(() => {
 
@@ -29,13 +26,19 @@ function Employees() {
     
     
   return (
-    <div>
-      <h3>Employee List</h3>
+    <div className='list'>
+      <div className='bank'>
+      <p>Bank Management System</p>
+    </div>
+      <div className='title'>
+      <p>Employee List</p>
+      </div>
+      
        <div>
-       <Table striped bordered hover size="sm">
+       <Table striped bordered hover size="sm" className='data' style={{ width: '90%' }}>
       <thead>
         <tr>
-          <th>#</th>
+          
           <th>Photo</th>
           <th> Name</th>
           <th>Email</th>
@@ -47,15 +50,19 @@ function Employees() {
       <tbody>
         
           {users.map((item)=>(
-            <tr>
-            <td>1</td>
-        <td >{item.emp_photo}</td>
+      
+        <tr>
+          
+        
+        <td ><img src=""  alt="React Image" style={{ width:"100px" ,height:"100px"}}/></td>
         <td >{item.emp_name}</td>
         <td >{item.emp_email}</td>
         <td >{item.emp_address}</td>
         <td >{item.branch_name}</td>
         <td >{item.bank_name}</td>
         </tr>
+        
+       
         ))}
 
           
@@ -63,6 +70,7 @@ function Employees() {
         
       </tbody>
     </Table>
+    
        </div>
       
 
