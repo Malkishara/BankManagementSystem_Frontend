@@ -32,8 +32,9 @@ const history=useHistory();
       console.log(email);
       if(data[i].emp_email==email && data[i].emp_password==password){
         console.log("True");
-         history.push("/employee");
+         
         navi=true;
+        history.push("/employee");
       }
       
       
@@ -41,6 +42,7 @@ const history=useHistory();
     
    if(navi!=true){
     alert("Invalid Email/Password");
+    history.push("/");
    }
   })
     

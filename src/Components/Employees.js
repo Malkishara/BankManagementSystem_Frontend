@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-import { Link ,useParams,useNavigate} from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
 import '../Styles/Employee.css'
@@ -38,7 +37,7 @@ function Employees() {
        <Table striped bordered hover size="sm" className='data' style={{ width: '90%' }}>
       <thead>
         <tr>
-          
+        <th>No</th>
           <th>Photo</th>
           <th> Name</th>
           <th>Email</th>
@@ -47,14 +46,14 @@ function Employees() {
           <th>Bank Name</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className='tbody'>
         
-          {users.map((item)=>(
+          {users.map((item,i)=>(
       
         <tr>
           
-        
-        <td ><img src=""  alt="React Image" style={{ width:"100px" ,height:"100px"}}/></td>
+          <td >{i+1}</td>
+        <td ><img src={item.emp_photo}  alt="React Image" style={{ width:"100px" ,height:"100px"}}/></td>
         <td >{item.emp_name}</td>
         <td >{item.emp_email}</td>
         <td >{item.emp_address}</td>
